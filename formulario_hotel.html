@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Hotel</title>
+    <script>
+        function validateForm() {
+            // Validaciones básicas con JavaScript
+            var nombre = document.forms["hotelForm"]["nombre"].value;
+            var ubicacion = document.forms["hotelForm"]["ubicacion"].value;
+            var habitaciones_disponibles = document.forms["hotelForm"]["habitaciones_disponibles"].value;
+            var tarifa_noche = document.forms["hotelForm"]["tarifa_noche"].value;
+            if (nombre == "" || ubicacion == "" || habitaciones_disponibles == "" || tarifa_noche == "") {
+                alert("Todos los campos deben ser completados");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Agregar Hotel</h2>
+    <form name="hotelForm" action="insertar_hotel.php" method="post" onsubmit="return validateForm()">
+        Nombre: <input type="text" name="nombre"><br>
+        Ubicación: <input type="text" name="ubicacion"><br>
+        Habitaciones Disponibles: <input type="number" name="habitaciones_disponibles"><br>
+        Tarifa por Noche: <input type="number" step="0.01" name="tarifa_noche"><br>
+        <input type="submit" value="Agregar Hotel">
+    </form>
+</body>
+</html>
